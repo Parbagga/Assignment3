@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS -->
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      header {
+        background-color: rgb(181, 184, 187);
+        width: 100vw;
+        text-align: center;
+        padding: 1rem 0;
+        transition: all 0.2s ease-in-out;
+      }
+
+      #main {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding: 2rem;
+      }
+
+      .box {
+        width: 8rem;
+        height: 8rem;
+        border: 2px solid black;
+        display: inline-block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        border-radius: 1.5rem;
+      }
+      #action_btns {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      input {
+        padding: 0.5rem;
+        margin-top: 5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Heading -->
+    <header id="header">
+      <h1>Hello!</h1>
+    </header>
+
+    <!-- Boxes -->
+    <main id="main">
+      <div class="box">Red</div>
+      <div class="box">Blue</div>
+      <div class="box">Green</div>
+      <div class="box">Yellow</div>
+    </main>
+    <!-- actions -->
+    <section>
+      <form id="action_btns">
+        <input type="text" class="name" placeholder="Enter Your Name" />
+        <input type="submit" class="submit-btn" class="submit" />
+      </form>
+    </section>
+  </body>
+  <!-- Javascript  -->
+  <script>
+    let greeting = document.querySelector("#header");
+    let input = document.querySelector(".name");
+    let submit = document.querySelector(".submit-btn");
+    let boxes = document.querySelectorAll(".box");
+
+    submit.addEventListener("click", (e) => {
+      const message = input.value;
+
+      if (message) {
+        greeting.innerHTML = `<h1>Hello! ${message}.</h1>`;
+        input.value = "";
+      }
+      e.preventDefault();
+    });
+
+    boxes.forEach((item) =>
+      item.addEventListener("click", (e) => {
+        const tag = e.target;
+
+        if (!tag.style.backgroundColor) {
+          tag.style.backgroundColor = e.target.innerText;
+        } else {
+          tag.style.backgroundColor = "";
+        }
+        // console.log(e.target.innerText);
+      }),
+    );
+  </script>
+</html>
