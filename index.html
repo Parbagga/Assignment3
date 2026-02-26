@@ -48,12 +48,18 @@
         padding: 0.5rem;
         margin-top: 5rem;
       }
+
+      .submit-btn{
+       padding: 0.5rem 1rem;
+        margin-top: 5rem;
+      }
+
     </style>
   </head>
   <body>
     <!-- Heading -->
     <header id="header">
-      <h1>Hello!</h1>
+      <h1>Hello</h1>
     </header>
 
     <!-- Boxes -->
@@ -67,7 +73,7 @@
     <section>
       <form id="action_btns">
         <input type="text" class="name" placeholder="Enter Your Name" />
-        <input type="submit" class="submit-btn" class="submit" />
+        <button class="submit-btn">Greet</button>
       </form>
     </section>
   </body>
@@ -82,7 +88,7 @@
       const message = input.value;
 
       if (message) {
-        greeting.innerHTML = `<h1>Hello! ${message}.</h1>`;
+        greeting.innerHTML = `<h1>Hello, ${message}</h1>`;
         input.value = "";
       }
       e.preventDefault();
